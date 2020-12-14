@@ -1,1 +1,61 @@
-<p>reporte-servicio works!</p>
+<div class="container">
+    <form [formGroup]="formularioReporte">
+        <div class="mb-3 mt-5">
+          <label for="exampleInputEmail1" class="form-label">Identificación del técnico</label>
+          <input formControlName="idTecnico" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div *ngIf="formularioReporte.controls['idTecnico'].invalid || !formularioReporte.controls['idTecnico'].dirty">
+            <div  class="alert alert-danger" role="alert">
+                Se requiere la identificación del técnico
+            </div>
+        </div>
+        </div>
+    
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Identificación del servicio</label>
+            <input formControlName="idServicio" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            
+            <div *ngIf="formularioReporte.controls['idServicio'].invalid || !formularioReporte.controls['idServicio'].dirty">
+                <div  class="alert alert-danger" role="alert">
+                    Se requiere la identificación del servicio
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="mb-3 ">
+            <label for="exampleInputEmail1" class="form-label">Fecha y hora del reporte</label>
+           <div class="row">
+            <div class="col-xs-12 col-12 col-md-6 form-group">
+                
+                <input type="text"
+                       placeholder="Fecha Inicio"
+                       class="form-control"
+                       formControlName="fechaInicio" 
+                       [bsConfig]="{ dateInputFormat: 'MM/DD/YYYY, hh:mm:ss a' }"
+                       bsDatepicker>
+                <div *ngIf="formularioReporte.controls['fechaInicio'].invalid || !formularioReporte.controls['fechaInicio'].dirty">
+                    <div  class="alert alert-danger" role="alert">
+                        Se requiere la identificación del servicio
+                    </div>
+                 </div>
+              </div>
+              <div class="col-xs-12 col-12 col-md-6 form-group">
+                  <input type="text"
+                         placeholder="Fecha fin"
+                         class="form-control"
+                         formControlName="fechaFin" 
+                         [bsConfig]="{ dateInputFormat: 'MM/DD/YYYY, hh:mm:ss a' }"
+                         bsDatepicker>
+                         <div *ngIf="formularioReporte.controls['fechaFin'].invalid || !formularioReporte.controls['fechaFin'].dirty">
+                            <div  class="alert alert-danger" role="alert">
+                                Se requiere la identificación del servicio
+                            </div>
+                         </div>
+                </div>
+           </div>
+        </div>
+    
+    
+        <button type="submit" class="btn btn-primary"  [disabled]="!formularioReporte.valid" (click)="reportarServicio()">Reportar</button>
+      </form>
+</div>
