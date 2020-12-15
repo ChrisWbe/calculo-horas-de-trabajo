@@ -21,4 +21,46 @@
         </div>
         <button type="submit" class="btn btn-success"  [disabled]="!formularioHoras.valid" (click)="consultar()">Consultar</button>
       </form>
+      <br>
+      <h2>Base de datos</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">IdTecnico</th>
+            <th scope="col">IdServicio</th>
+            <th scope="col">Fecha Inicio</th>
+            <th scope="col">Fecha Fin</th>
+            <th scope="col"># Horas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reporte of reportes">
+            <th scope="row">{{reporte._idTecnico}}</th>
+            <td>{{reporte._idServicio}}</td>
+            <td>{{reporte._fechaInicio | date:'medium'}}</td>
+            <td>{{reporte._fechaFin | date:'medium'}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Datos de Prueba</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">IdTecnico</th>
+            <th scope="col">IdServicio</th>
+            <th scope="col">Fecha Inicio</th>
+            <th scope="col">Fecha Fin</th>
+            <th scope="col"># Horas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reporte of iReportes">
+            <th scope="row">{{reporte._idTecnico}}</th>
+            <td>{{reporte._idServicio}}</td>
+            <td>{{reporte._fechaInicio | date:'medium'}}</td>
+            <td>{{reporte._fechaFin | date:'medium'}}</td>
+            <td>{{((reporte._fechaFin.getTime() - reporte._fechaInicio.getTime()) / (1000 * 60 * 60)).toFixed(1)}}</td>
+          </tr>
+        </tbody>
+      </table>
 </div>
