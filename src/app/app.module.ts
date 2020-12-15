@@ -10,6 +10,9 @@ import { HorasTrabajoComponent } from './components/horas-trabajo/horas-trabajo.
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {HttpClientModule} from "@angular/common/http"
+import { ServiceService } from './services/service.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +25,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     FormsModule,
     BsDatepickerModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

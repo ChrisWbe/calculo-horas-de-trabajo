@@ -1,1 +1,24 @@
-<p>horas-trabajo works!</p>
+<div class="container">
+    <form [formGroup]="formularioHoras">
+        <div class="mb-3 mt-5">
+          <h3 for="exampleInputEmail1" class="form-label">Identificación del técnico</h3>
+          <input formControlName="idTecnico" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div *ngIf="formularioHoras.controls['idTecnico'].invalid || !formularioHoras.controls['idTecnico'].dirty">
+            <div  class="alert alert-danger" role="alert">
+                Se requiere la identificación del técnico
+            </div>
+            </div>
+        </div>
+
+        <div class="mb-3 mt-5">
+            <h3 for="exampleInputEmail1" class="form-label">Numero semana del año</h3>
+            <input formControlName="numeroSemana" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div *ngIf="formularioHoras.controls['numeroSemana'].invalid || !formularioHoras.controls['numeroSemana'].dirty">
+                <div  class="alert alert-danger" role="alert">
+                    Se requiere el numero de la semana
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success"  [disabled]="!formularioHoras.valid" (click)="consultar()">Consultar</button>
+      </form>
+</div>

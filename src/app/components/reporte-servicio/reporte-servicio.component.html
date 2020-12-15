@@ -1,8 +1,8 @@
 <div class="container">
     <form [formGroup]="formularioReporte">
         <div class="mb-3 mt-5">
-          <label for="exampleInputEmail1" class="form-label">Identificación del técnico</label>
-          <input formControlName="idTecnico" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <h3 for="exampleInputEmail1" class="form-label display-6">Identificación del técnico</h3>
+          <input formControlName="idTecnico" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
           <div *ngIf="formularioReporte.controls['idTecnico'].invalid || !formularioReporte.controls['idTecnico'].dirty">
             <div  class="alert alert-danger" role="alert">
                 Se requiere la identificación del técnico
@@ -11,8 +11,8 @@
         </div>
     
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Identificación del servicio</label>
-            <input formControlName="idServicio" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <h3 for="exampleInputEmail1" class="form-label">Identificación del servicio</h3>
+            <input formControlName="idServicio" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             
             <div *ngIf="formularioReporte.controls['idServicio'].invalid || !formularioReporte.controls['idServicio'].dirty">
                 <div  class="alert alert-danger" role="alert">
@@ -23,7 +23,7 @@
         </div>
 
         <div class="mb-3 ">
-            <label for="exampleInputEmail1" class="form-label">Fecha y hora del reporte</label>
+            <h3 for="exampleInputEmail1" class="form-label">Fecha y hora del reporte</h3>
            <div class="row">
             <div class="col-xs-12 col-12 col-md-6 form-group">
                 
@@ -35,7 +35,7 @@
                        bsDatepicker>
                 <div *ngIf="formularioReporte.controls['fechaInicio'].invalid || !formularioReporte.controls['fechaInicio'].dirty">
                     <div  class="alert alert-danger" role="alert">
-                        Se requiere la identificación del servicio
+                        Campo requerido
                     </div>
                  </div>
               </div>
@@ -48,7 +48,7 @@
                          bsDatepicker>
                          <div *ngIf="formularioReporte.controls['fechaFin'].invalid || !formularioReporte.controls['fechaFin'].dirty">
                             <div  class="alert alert-danger" role="alert">
-                                Se requiere la identificación del servicio
+                               Campo requerido
                             </div>
                          </div>
                 </div>
@@ -56,6 +56,6 @@
         </div>
     
     
-        <button type="submit" class="btn btn-primary"  [disabled]="!formularioReporte.valid" (click)="reportarServicio()">Reportar</button>
+        <button type="submit" class="btn btn-success"  [disabled]="!formularioReporte.valid" (click)="reportarServicio()">Reportar</button>
       </form>
 </div>
